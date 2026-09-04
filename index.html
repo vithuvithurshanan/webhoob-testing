@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Form</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Step 1: Webhook URL Input -->
+  <div id="step-webhook" class="container">
+    <div class="card">
+      <h2>Setup Webhook</h2>
+      <p class="subtitle">Enter your webhook URL to receive contact form submissions.</p>
+      <div class="form-group">
+        <label for="webhookUrl">Webhook URL <span class="required">*</span></label>
+        <input
+          type="url"
+          id="webhookUrl"
+          placeholder="https://your-webhook-url.com/endpoint"
+          autocomplete="off"
+        />
+        <span id="webhookError" class="error-msg"></span>
+      </div>
+      <button id="btnSaveWebhook" class="btn-primary">Continue to Form</button>
+    </div>
+  </div>
+
+  <!-- Step 2: Contact Form -->
+  <div id="step-form" class="container hidden">
+    <div class="card">
+      <h2>Contact Us</h2>
+      <p class="subtitle">Fill in your details and we'll get back to you.</p>
+
+      <form id="contactForm" novalidate>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name <span class="required">*</span></label>
+            <input type="text" id="firstName" name="firstName" placeholder="First Name" />
+            <span class="error-msg" id="errFirstName"></span>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name <span class="required">*</span></label>
+            <input type="text" id="lastName" name="lastName" placeholder="Last Name" />
+            <span class="error-msg" id="errLastName"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone <span class="required">*</span></label>
+          <div class="phone-wrapper">
+            <span class="flag-prefix">🇱🇰&nbsp;+94</span>
+            <input type="tel" id="phone" name="phone" placeholder="Phone" />
+          </div>
+          <span class="error-msg" id="errPhone"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="text" id="address" name="address" placeholder="Address" />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email <span class="required">*</span></label>
+          <input type="email" id="email" name="email" placeholder="Email" />
+          <span class="error-msg" id="errEmail"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Message" rows="4"></textarea>
+        </div>
+
+        <div id="submitStatus" class="status-msg hidden"></div>
+
+        <button type="submit" class="btn-primary btn-submit">Submit</button>
+      </form>
+
+      <button id="btnChangeWebhook" class="btn-link">Change webhook URL</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
